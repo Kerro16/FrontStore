@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationAPIService } from './registration.api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrl: './registration.component.css'
+  styleUrls: ['./registration.component.css']
 })
 
 export class RegistrationComponent {
   registrationForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private registrationApiService: RegistrationAPIService){
+  constructor(private fb:FormBuilder, private registrationApiService: RegistrationAPIService, private router: Router){
     this.registrationForm = this.fb.group({
       //Campos y validaciones
       username: ['', Validators.required],
@@ -26,6 +27,7 @@ export class RegistrationComponent {
         (response) => {
         if(response){
           console.log('Registro exitoso');
+          this.router.navigate(['/', 'login']);
         }
         else{
           console.log('Error de registro');
