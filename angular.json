@@ -68,9 +68,11 @@
           "configurations": {
             "production": {
               "buildTarget": "FrontStore:build:production"
+              
             },
             "development": {
               "buildTarget": "FrontStore:build:development"
+             
             }
           },
           "defaultConfiguration": "development"

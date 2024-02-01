@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { RegistrationAPIService } from './registration.api';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class RegistrationComponent {
   registrationForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private authService: AuthService){
+  constructor(private fb:FormBuilder, private registrationApiService: RegistrationAPIService){
     this.registrationForm = this.fb.group({
       //Campos y validaciones
       username: ['', Validators.required],
@@ -21,16 +21,20 @@ export class RegistrationComponent {
   }
 
   onSubmit(){
-    if (this.registrationForm.valid){
-      this.authService.login('admin', 'adminpassword',this.registrationForm).subscribe((response) => {
+    if (this.registrationForm.valid) {
+      this.registrationApiService.registration(this.registrationForm).subscribe(
+        (response) => {
         if(response){
-          console.log('Exito');
+          console.log('Registro exitoso');
         }
         else{
-          console.log('Error de autenticacion');
+          console.log('Error de registro');
         }
-      });
+      },
+      (error) => {
+        console.error('Error en la solicitud de registro', error);
+      }
+      );
     }
   }
-
 }
