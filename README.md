@@ -8,7 +8,7 @@ Pagina web para ECommerce.
 - Angular
 - HTML5
 - CSS3
-- Backend: [StoreAPI]([enlace al repositorio del backend](https://github.com/Kerro16/StoreAPI))
+- Backend: [StoreAPI]([Repositorio](https://github.com/Kerro16/StoreAPI))
 - PostgreSQL
 
 ## Contacto
