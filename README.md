@@ -1,4 +1,4 @@
-# Nombre del Proyecto
+# FrontStore
 
 ## Descripción
 Pagina web para ECommerce.
