@@ -1,0 +1,43 @@
+.user-list-container {
+    background-image: url('/assets/images/user-management-background.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .user-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .pagination {
+    background-color: #333; /* Cambia este color al que prefieras */
+    justify-content: center;
+  }
+  
+  /* Resto de los estilos de paginación */
+  .pagination .page-item {
+    cursor: pointer;
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .pagination .page-link {
+    color: #007bff;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .pagination-container {
+    background-color: #333;
+    padding: 10px; 
+    text-align: center; 
+  }

@@ -4,13 +4,13 @@ import { Observable } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { FormGroup } from "@angular/forms";
-import { AuthService } from "../auth.service";
+import { AuthService } from "../service/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class APILoginService {
-  private baseUrl = 'http://localhost:8080';  // Reemplaza con la URL de tu API
+  
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { UserserviceService } from '../service/userservice.service';
 
 @Component({
-  selector: 'app-manageusers',
-  templateUrl: './manageusers.component.html',
-  styleUrl: './manageusers.component.css'
+  selector: 'app-user',
+  templateUrl: 'user.component.html',
+  styleUrl: './user.component.css'
 })
 export class ManageusersComponent {
 
   users: any[] =[];
+  currentPage = 1;
+  itemsPerPage = 5;
 
-  constructor(private authService: AuthService) {}
+  constructor(private userService: UserserviceService) { }
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers(): void {
-    this.authService.getAllUsers().subscribe(
+    this.userService.getAllUsers().subscribe(
       (data) => {
         this.users = data;
       },

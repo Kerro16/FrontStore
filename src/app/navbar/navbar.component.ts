@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { AuthstatusserviceService } from '../service/authstatusservice.service';
 
 
 @Component({
@@ -7,17 +8,38 @@ import { Observable } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
-  isLoggedIn$: boolean = false;
-
-  constructor() {
+  isAuthenticated: boolean = false;
+  userRoles: string[] = [];
   
-  }
 
-  //Agregar logica despues
-  logout(): void {
-    //this.authService.logout();
-  }
 
+  constructor(private authStatusService: AuthstatusserviceService, private authService: AuthService) {}
+
+ ngOnInit():void{
+
+  this.authStatusService.isAuthenticated$.subscribe(isAuthenticated => {
+    this.isAuthenticated = isAuthenticated;
+    if (isAuthenticated) {
+      this.userRoles = this.authService.getUserRoles();
+    } else {
+      this.userRoles = [];
+    }
+  });
+}
+
+
+logout():void{
+  this.authService.signoutrequest().subscribe(
+    () => {
+      // La lógica para manejar el éxito del cierre de sesión
+      this.isAuthenticated = false;
+    },
+    (error) => {
+      // La lógica para manejar cualquier error
+      console.error('Error al cerrar sesión:', error);
+    }
+  );
+  }
 }

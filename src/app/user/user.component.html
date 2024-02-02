@@ -1,0 +1,23 @@
+<div class="user-list-container">
+  <div class="row">
+    <div *ngFor="let user of users | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: users.length }" class="col-md-4 mb-4">
+      <div class="user-card card">
+        <div class="card-header">
+          <h5 class="card-title">{{ user.username }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Correo Electrónico:</strong> {{ user.email }}</p>
+          <p class="card-text"><strong>Roles:</strong></p>
+          <ul class="list-unstyled">
+            <li *ngFor="let role of user.roles">{{ role.name }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="pagination-container">
+  <pagination-controls class="my-pagination"></pagination-controls>
+</div>
