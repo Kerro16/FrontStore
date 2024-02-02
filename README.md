@@ -9,7 +9,6 @@ Pagina web para ECommerce.
 - HTML5
 - CSS3
 - Backend: [StoreAPI](https://github.com/Kerro16/StoreAPI)
-- PostgreSQL
 
 ## Contacto
 Email:kmayorga1995@gmail.com
