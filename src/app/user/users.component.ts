@@ -3,8 +3,8 @@ import { UserserviceService } from '../service/userservice.service';
 
 @Component({
   selector: 'app-manageusers',
-  templateUrl: './manageusers.component.html',
-  styleUrl: './manageusers.component.css'
+  templateUrl: './user.component.html',
+  styleUrl: './user.component.css'
 })
 export class ManageusersComponent {
 

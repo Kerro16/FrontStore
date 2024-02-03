@@ -1,0 +1,13 @@
+.welcome {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .welcome h2 {
+    color: #333;
+  }
+  
+  .welcome p {
+    color: #666;
+  }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, timer } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -15,11 +16,13 @@ export class AuthstatusserviceService {
 
   private setupAuthenticationPolling(): void {
     // Realiza la validación periódica cada minuto
-    setInterval(() => {
-      this.authService.validateUser().subscribe((isAuthenticated) => {
+    timer(0, 1 * 60 * 1000)
+      .pipe(
+        switchMap(() => this.authService.validateUser())
+      )
+      .subscribe((isAuthenticated) => {
         this.isAuthenticatedSubject.next(isAuthenticated);
       });
-    }, 1 * 60 * 1000);
   }
 
   get isAuthenticated$(): Observable<boolean> {
