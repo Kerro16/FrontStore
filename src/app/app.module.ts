@@ -9,9 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ManageusersComponent } from './user/user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductComponent } from './product/product.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ManageusersComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,8 @@ import { ProductComponent } from './product/product.component';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    ManageusersComponent,
-    ProductComponent
+    ProductComponent,
+    ManageusersComponent
     
   ],
   imports: [
@@ -31,7 +32,9 @@ import { ProductComponent } from './product/product.component';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

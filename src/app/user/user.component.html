@@ -1,6 +1,7 @@
 <div class="user-list-container">
   <div class="row">
-    <div *ngFor="let user of users | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: users.length }" class="col-md-4 mb-4">
+    <!-- Aquí aplicamos el pipe 'paginate' a 'users' -->
+    <div *ngFor="let user of users | paginate: { id: 'some_id', itemsPerPage: itemsPerPage, currentPage: p }" class="col-md-4 mb-4">
       <div class="user-card card">
         <div class="card-header">
           <h5 class="card-title">{{ user.username }}</h5>
@@ -16,8 +17,20 @@
     </div>
   </div>
 </div>
+  <div class="pagination-container">
+    <pagination-controls  class="my-pagination"
+      id="some_id"
+      (pageChange)="p = $event"
+      (pageBoundsCorrection)="p = $event"
+      [maxSize]= "maxSize"
+      [directionLinks]="true"
+      [autoHide]="true"
+      [responsive]="true"
+      [previousLabel]="'Previous'"
+      [nextLabel]="'Next'"
+      [screenReaderPaginationLabel]="'Pagination'"
+      [screenReaderPageLabel]="'page'"
+      [screenReaderCurrentLabel]="'You\'re on page'"
+    ></pagination-controls>
+  </div>
 
-
-<div class="pagination-container">
-  <pagination-controls class="my-pagination"></pagination-controls>
-</div>

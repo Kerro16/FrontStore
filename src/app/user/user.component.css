@@ -1,43 +1,161 @@
-.user-list-container {
-    background-image: url('/assets/images/user-management-background.jpeg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  .user-card {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .pagination {
-    background-color: #333; /* Cambia este color al que prefieras */
-    justify-content: center;
-  }
-  
-  /* Resto de los estilos de paginación */
-  .pagination .page-item {
-    cursor: pointer;
-  }
-  
-  .pagination .page-item.active .page-link {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .pagination .page-link {
-    color: #007bff;
-  }
-  
-  .pagination .page-link:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
+/* Estilos para el contenedor de la lista de usuarios */
 
-  .pagination-container {
-    background-color: #333;
-    padding: 10px; 
-    text-align: center; 
+
+ ::ng-deep body {
+  background-image: url('/assets/images/user-management-background.jpeg'); 
+}
+
+.user-list-container {
+ /* background-image: url('/assets/images/user-management-background.jpeg');*/
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Estilos para la tarjeta de usuario */
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.user-card:hover {
+  transform: scale(1.02);
+}
+
+/* Estilos para el encabezado de la tarjeta de usuario */
+.user-card .card-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Estilos para el título de la tarjeta de usuario */
+.user-card .card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* Estilos para el cuerpo de la tarjeta de usuario */
+.user-card .card-body {
+  padding: 15px;
+}
+
+.user-card p {
+  margin-bottom: 8px;
+}
+
+.pagination-container {
+  height: 50px; /* Ajusta esto a la altura que prefieras */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ajusta esto a la distancia que prefieras del borde inferior del contenedor */
+}
+
+/* Estilos para la paginación */
+::ng-deep .ngx-pagination {
+  margin: 0 auto; /* Centra la paginación */
+  display: flex; /* Asegura que los elementos hijos se alineen en línea */
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+::ng-deep .ngx-pagination .pagination-previous a:hover,
+::ng-deep .ngx-pagination .pagination-previous.disabled:hover {
+  background: #e6e6e6; 
+}
+
+::ng-deep .ngx-pagination:before,
+::ng-deep .ngx-pagination:after {
+  content: " ";
+  display: table;
+}
+
+::ng-deep .ngx-pagination:after {
+  clear: both;
+}
+
+::ng-deep .ngx-pagination li {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  margin-right: .0625rem;
+  border-radius: 0;
+  display: inline-block;
+}
+
+::ng-deep .ngx-pagination a,
+::ng-deep .ngx-pagination button {
+  color: #0a0a0a;
+  display: block;
+  padding: .1875rem .625rem;
+  border-radius: 0;
+  background-color: #f2f2f2; /* Agrega un fondo gris claro */
+  border: 1px solid #bfbfbf; /* Agrega un borde */
+}
+
+::ng-deep .ngx-pagination a:hover,
+::ng-deep .ngx-pagination button:hover {
+  background: #e6e6e6;
+}
+
+::ng-deep .ngx-pagination .current {
+  padding: .1875rem .625rem;
+  background: #2199e8;
+  color: #fefefe;
+  cursor: default;
+}
+
+::ng-deep .ngx-pagination .disabled {
+  padding: .1875rem .625rem;
+  color: #cacaca;
+  cursor: default;
+  background-color: #f2f2f2; /* Agrega un fondo gris claro */
+  border: 1px solid #bfbfbf; /* Agrega un borde */
+}
+
+::ng-deep .ngx-pagination .disabled:hover {
+  background: transparent;
+}
+
+::ng-deep .ngx-pagination a,
+::ng-deep .ngx-pagination button {
+  cursor: pointer;
+}
+
+::ng-deep .ngx-pagination .pagination-next a:after,
+::ng-deep .ngx-pagination .pagination-next.disabled:after {
+  content: "\bb";
+  display: inline-block;
+  margin-left: .5rem;
+}
+
+::ng-deep .ngx-pagination .pagination-next a:hover,
+::ng-deep .ngx-pagination .pagination-next.disabled:hover {
+  background: #e6e6e6; /* Agrega el mismo efecto de hover que el botón "previous" */
+}
+
+::ng-deep .ngx-pagination .show-for-sr {
+  position: absolute!important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+::ng-deep .ngx-pagination .small-screen {
+  display: none;
+}
+
+@media screen and (max-width: 601px) {
+  ::ng-deep .ngx-pagination.responsive .small-screen {
+    display: inline-block;
   }
+  ::ng-deep .ngx-pagination.responsive li:not(.small-screen):not(.pagination-previous):not(.pagination-next) {
+    display: none;
+  }
+}

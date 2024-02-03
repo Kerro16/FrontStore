@@ -2,17 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../service/userservice.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: 'user.component.html',
-  styleUrl: './user.component.css'
+  selector: 'app-manageusers',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class ManageusersComponent {
+export class ManageusersComponent implements OnInit{
 
-  users: any[] =[];
-  currentPage = 1;
-  itemsPerPage = 5;
+  users: any[] = [];
+  maxSize: number = 7;
+  totalItems: number = 0; 
+  p: number = 1;
+  itemsPerPage: number = 12;
 
-  constructor(private userService: UserserviceService) { }
+  constructor(private userService: UserserviceService) {
+  }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -22,11 +25,16 @@ export class ManageusersComponent {
     this.userService.getAllUsers().subscribe(
       (data) => {
         this.users = data;
+        this.totalItems = this.users.length;
       },
       (error) => {
-        console.error('Error fetching users:' , error);
+        console.error('Error fetching users:', error);
       }
     );
   }
 
+  pageChanged(event: number): void {
+    this.p = event;
+    console.log(this.p);
+  }
 }
