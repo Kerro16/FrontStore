@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ManageusersComponent } from './user/user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    ManageusersComponent
+    ManageusersComponent,
+    ProductComponent
     
   ],
   imports: [
