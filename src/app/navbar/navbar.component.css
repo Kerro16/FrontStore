@@ -1,5 +1,23 @@
-.nav-link.logout {
-    cursor: pointer;
-  }
+.navbar {
+  background-color: #003366 !important; /* Cambia el color de fondo de la barra de navegación a rojo */
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
 
-  
+.navbar .navbar-brand {
+  color: #ffffff; /* Cambia el color de las letras a blanco */
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #ffffff; /* Cambia el color de las letras a blanco */
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-item:not(.ng-star-inserted) .nav-link:hover {
+  color: #6699cc; /* Cambia el color de las letras a gris claro al pasar el cursor sobre ellas */
+}
+
+.nav-link.logout {
+  cursor: pointer;
+}

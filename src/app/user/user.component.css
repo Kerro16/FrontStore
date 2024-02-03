@@ -2,7 +2,7 @@
 
 
  ::ng-deep body {
-  background-image: url('/assets/images/user-management-background.jpeg'); 
+  background-color: #f6f6f6; 
 }
 
 .user-list-container {

@@ -1,6 +1,5 @@
 <div class="user-list-container">
   <div class="row">
-    <!-- Aquí aplicamos el pipe 'paginate' a 'users' -->
     <div *ngFor="let user of users | paginate: { id: 'some_id', itemsPerPage: itemsPerPage, currentPage: p }" class="col-md-4 mb-4">
       <div class="user-card card">
         <div class="card-header">
