@@ -1,6 +1,6 @@
-<div class="product-list-container">
-  <div class="row">
-    <div *ngFor="let product of products | paginate: { id: 'pagination_product', itemsPerPage: itemsPerPage, currentPage: p }" class="col-md-3 mb-4"> <!-- Cambia "mb-4" a "mb-2" -->
+<div class="d-flex flex-wrap flex-row">
+  <div *ngFor="let product of products | paginate: { id: 'pagination_product', itemsPerPage: itemsPerPage, currentPage: p }" class="col-md-3 mb-4">
+    <a class="link" [routerLink]="['/product', product.id]">
       <div class="product-card">
         <div class="product-image">
           <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
@@ -11,9 +11,10 @@
           <p class="product-price">{{ product.price }}</p>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
+
 <div class="pagination-container">
   <pagination-controls class="my-pagination"
     id="pagination_product"

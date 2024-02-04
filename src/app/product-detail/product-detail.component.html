@@ -1,0 +1,20 @@
+<div *ngIf="productDetails" class="product-details">
+    <h2>{{ productDetails.name }}</h2>
+    <div class="product-details-container">
+        <div class="product-image">
+            <img src="{{ productDetails.imageUrl }}" alt="{{ productDetails.name }}">
+        </div>
+        <div class="product-info">
+            <p class="product-description">{{ productDetails.description }}</p>
+            <p class="product-price">Price: {{ productDetails.price }}</p>
+            <p class="product-stock">Stock: {{ productDetails.stock }}</p>
+            <!-- Otros detalles del producto según sea necesario -->
+            <div class="quantity-controls">
+                <button>-</button>
+                <input type="number" min="1" value="1">
+                <button>+</button>
+            </div>
+            <button class="add-to-cart-button">Agregar al carrito</button>
+        </div>
+    </div>
+</div>

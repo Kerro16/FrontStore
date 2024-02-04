@@ -8,13 +8,16 @@
     justify-content: flex-start;
 }
 
+.link {
+  text-decoration: none;
+}
 .product-card {
   width: 300px;
   height: 450px;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  margin: 1px; /* Reducir el margen */
+  margin: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 10px;
@@ -38,11 +41,14 @@
     font-size: 1.4em;
     font-weight: bold;
     margin-bottom: 8px;
+    color: #0a0a0a;
 }
 
 .product-description {
     font-size: 1em;
     margin-bottom: 12px;
+    color:#0a0a0a;
+    text-decoration: none !important;
 }
 
 .product-price {

@@ -13,6 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductComponent } from './product/product.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ManageusersComponent } from './user/user.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ManageusersComponent } from './user/user.component';
     HomeComponent,
     NavbarComponent,
     ProductComponent,
-    ManageusersComponent
+    ManageusersComponent,
+    ProductDetailComponent
     
   ],
   imports: [
